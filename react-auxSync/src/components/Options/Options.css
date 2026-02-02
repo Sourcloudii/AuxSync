@@ -1,0 +1,57 @@
+.options {
+  width: 100%;
+}
+
+.options__content {
+  display: flex;
+}
+
+.options__nav {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+  align-items: center;
+}
+
+.options_btn {
+  width: 268px;
+  height: 85px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.options-join__link {
+  background-color: #80be73;
+  color: #000;
+}
+
+.options-host__link {
+  background-color: #e8433d;
+  color: #000;
+}
+
+.aux-cord-img {
+  width: 167px;
+  height: 135px;
+  position: absolute;
+  top: -75px;
+  right: -125px;
+  z-index: -1;
+}
+
+.bluetooth-img {
+  width: 70px;
+  height: 106px;
+}
