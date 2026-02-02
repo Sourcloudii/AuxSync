@@ -1,0 +1,9 @@
+.header {
+  width: 100%;
+}
+
+.header__content {
+  display: flex;
+  justify-content: center;
+  height: 110px;
+}
