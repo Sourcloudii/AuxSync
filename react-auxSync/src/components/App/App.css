@@ -1,0 +1,12 @@
+.page {
+  background-color: #fed8b7;
+  font-family: "Sen", "Roboto", sans-serif;
+}
+
+.page__content {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
