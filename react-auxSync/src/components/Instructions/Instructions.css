@@ -1,0 +1,51 @@
+.instructions {
+  width: 640px;
+  height: 440px;
+}
+
+.instructions__content {
+  padding: 20px 18px;
+}
+
+.instructions-list {
+  height: 335px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #edc8b8;
+  box-shadow: 0 0 20px 20px #edc8b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructions-list__item {
+  margin-bottom: 35px;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+
+.instructions-list__item-hidden {
+  display: none;
+}
+
+.instructions-btn__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.instructions-btn {
+  /* width: 25px;
+  height: 25px; */
+  border-style: none;
+  /* border-radius: 50%; */
+  padding: 0;
+  background-color: transparent;
+}
+
+.instructions-btn_left-arrow {
+}
