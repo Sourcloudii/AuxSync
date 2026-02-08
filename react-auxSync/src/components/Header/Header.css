@@ -5,5 +5,9 @@
 .header__content {
   display: flex;
   justify-content: center;
-  height: 110px;
+  height: 100px;
+}
+
+.header__title {
+  height: 100%;
 }
