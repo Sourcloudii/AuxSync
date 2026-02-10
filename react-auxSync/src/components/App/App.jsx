@@ -58,7 +58,7 @@ function App() {
         <Header location={location} />
         <Routes>
           <Route path="/" element={<Main handleUserChange={handleUserChange} user={user} />} />
-          <Route path="/host-page" /*element={ }*/ />
+          <Route path="/host-page" /*element={<HostPage gifs={gifs} />}*/ />
           <Route path="/join-page" /*element={ }*/ />
         </Routes>
       </div>
