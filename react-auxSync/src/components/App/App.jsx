@@ -55,7 +55,7 @@ function App() {
             />
           ))}
         </div>
-        <Header location={location}/>
+        <Header location={location} />
         <Routes>
           <Route path="/" element={<Main handleUserChange={handleUserChange} user={user} />} />
           <Route path="/host-page" /*element={ }*/ />
