@@ -10,13 +10,13 @@ export function Options() {
         <nav className="options__nav">
           <div className="btn-wrapper">
             <img src={auxCord} alt="Aux Cord" className="aux-cord-img" />
-            <Link to="#" className="options__link">
+            <Link to="/join-page" className="options__link">
               <button className="options_btn options-join__link">Join</button>
             </Link>
           </div>
           <div className="btn-wrapper">
             <img src={bluetooth} alt="Bluetooth" className="bluetooth-img" />
-            <Link to="#" className="options__link">
+            <Link to="/host-page" className="options__link">
               <button className="options_btn options-host__link">Host</button>
             </Link>
           </div>
