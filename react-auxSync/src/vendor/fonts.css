@@ -5,6 +5,12 @@
 }
 
 @font-face {
+  font-family: Sen;
+  font-weight: 400;
+  src: url(./fonts/Sen-Regular.ttf) format("truetype");
+}
+
+@font-face {
   font-family: Roboto;
   font-weight: 700;
   src:
