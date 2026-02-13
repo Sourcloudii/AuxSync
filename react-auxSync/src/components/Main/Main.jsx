@@ -2,12 +2,17 @@ import "./Main.css";
 import { Options } from "../Options/Options.jsx";
 import { Instructions } from "../Instructions/Instructions.jsx";
 
-export function Main({ handleUserChange, user }) {
+export function Main({
+  handleUserChange,
+  user,
+  preventDefault,
+  openJoinModal,
+}) {
   return (
     <main className="main">
       <div className="main__content">
-        <Options />
-        <form className="nickname-form">
+        <Options openJoinModal={openJoinModal} />
+        <form className="nickname-form" onSubmit={preventDefault}>
           <input
             className="nickname_input"
             placeholder="Nickname here"
