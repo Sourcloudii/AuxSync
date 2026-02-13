@@ -24,18 +24,30 @@ export function Instructions() {
           <button
             className="instructions-btn instructions-btn_left-arrow"
             onClick={() => {
-              activeSlide === 0 ? setActiveSlide(3) : setActiveSlide(activeSlide - 1);
+              activeSlide === 0
+                ? setActiveSlide(3)
+                : setActiveSlide(activeSlide - 1);
             }}
           >
-            <img src={leftArrow} alt="Left Arrow" className="instructions-btn_left-arrow_img" />
+            <img
+              src={leftArrow}
+              alt="Left Arrow"
+              className="instructions-btn_left-arrow_img"
+            />
           </button>
           <button
             className="instructions-btn instructions-btn_right-arrow"
             onClick={() => {
-              activeSlide === 3 ? setActiveSlide(0) : setActiveSlide(activeSlide + 1);
+              activeSlide === 3
+                ? setActiveSlide(0)
+                : setActiveSlide(activeSlide + 1);
             }}
           >
-            <img src={rightArrow} alt="Right Arrow" className="instructions-btn_right-arrow_img" />
+            <img
+              src={rightArrow}
+              alt="Right Arrow"
+              className="instructions-btn_right-arrow_img"
+            />
           </button>
         </div>
       </div>
