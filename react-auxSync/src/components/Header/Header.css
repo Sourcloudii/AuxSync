@@ -7,6 +7,10 @@
   justify-content: center;
   height: 100px;
 }
+.header__content_in-game {
+  justify-content: flex-start;
+  padding-left: 25px;
+}
 
 .header__title {
   height: 100%;
