@@ -2,7 +2,9 @@
 @import url(./vendor/fonts.css);
 @import url(./components/App/App.css);
 @import url(./components/Header/Header.css);
-@import url(./components//Main/Main.css); 
+@import url(./components//Main/Main.css);
 @import url(./components/Options/Options.css);
 @import url(./components/Instructions/Instructions.css);
+@import url(./components/JoinModal/JoinModal.css);
+@import url(./components/Room/Room.css);
 /* @import url(./components/Footer/Footer.css); */
