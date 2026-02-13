@@ -28,14 +28,28 @@
   position: absolute;
   width: 100px;
   height: auto;
-  animation: fall linear infinite;
+  animation:
+    fall linear infinite,
+    fade linear infinite;
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(-125px);
+    transform: translateY(-115px);
   }
   100% {
     transform: translateY(110vh);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: var(--initial-opacity);
+  }
+  90% {
+    opacity: calc(var(--initial-opacity) * 0.4);
+  }
+  100% {
+    opacity: 0;
   }
 }
