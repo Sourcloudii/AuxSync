@@ -6,15 +6,15 @@ export function Header({ location }) {
   return location === "/" ? (
     <header className="header">
       <div className="header__content">
-        <Link to="/">
+        <Link to="/" className="header__title-link">
           <img src={title} alt="AuxSync" className="header__title" />
         </Link>
       </div>
     </header>
-  ) : location === "/host-page" || location === "/lobby-page" ? (
+  ) : location === "/room" || location === "/lobby" ? (
     <header className="header">
       <div className="header__content header__content_in-game">
-        <Link to="/">
+        <Link to="/" className="header__title-link">
           <img src={title} alt="AuxSync" className="header__title" />
         </Link>
       </div>
