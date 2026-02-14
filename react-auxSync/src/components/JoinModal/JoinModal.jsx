@@ -13,7 +13,7 @@ export function JoinModal({ preventDefault, closeModal, modalState }) {
         <button className="join-modal__close-btn" onClick={closeModal}>
           <img src={closeButton} alt="Close" />
         </button>
-        <h2 className="join-modal__title">Room Code:</h2>
+        <h2 className="join-modal__title text_shadow">Room Code:</h2>
         <form className="join-modal__form" onSubmit={handleJoinSubmit}>
           <input
             className="join-modal__input"
