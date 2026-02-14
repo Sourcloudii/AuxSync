@@ -19,7 +19,7 @@ export function Options({ openJoinModal }) {
           </div>
           <div className="btn-wrapper">
             <img src={bluetooth} alt="Bluetooth" className="bluetooth-img" />
-            <Link to="/host-page" className="options__link">
+            <Link to="/room" className="options__link">
               <button className="options_btn options-host__link">Host</button>
             </Link>
           </div>
