@@ -1,0 +1,51 @@
+.room {
+  width: 100%;
+}
+.room__content {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.room__lobby-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.room__lobby-code {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0 0 32px;
+}
+
+.room__lobby-players__wrapper {
+  display: flex;
+  gap: 50px;
+}
+
+.player-label {
+  color: #fff;
+  font-size: 32px;
+  margin: 0;
+}
+
+.room__lobby-players-info {
+  display: flex;
+  flex-direction: column;
+  width: 585px;
+  height: 700px;
+  padding: 25px 45px;
+  background-color: #edc8b8;
+  border-radius: 40px;
+}
+
+.room__exit-btn {
+  background: none;
+  border: none;
+  display: flex;
+  padding: 0;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
