@@ -36,9 +36,25 @@
   color: #000;
 }
 
+.options-join__link:hover {
+  background-color: #b6da82;
+}
+
+.options-join__link:active {
+  background-color: #3a9c62;
+}
+
 .options-host__link {
-  background-color: #e8433d;
+  background-color: #E21E1E;
   color: #000;
+}
+
+.options-host__link:hover {
+  background-color: #e94747;
+}
+
+.options-host__link:active {
+  background-color: #9c2727;
 }
 
 .aux-cord-img {
