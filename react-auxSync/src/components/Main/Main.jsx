@@ -17,7 +17,7 @@ export function Main({
             className="nickname_input"
             placeholder="Nickname here"
             minLength="2"
-            maxLength="20"
+            maxLength="15"
             onChange={handleUserChange}
             value={user}
           />

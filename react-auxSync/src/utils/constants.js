@@ -9,11 +9,13 @@ export const instructions = [
 
 export const quotes = [
   {
-    quote: "No Aux battle was ever won according to plan, but no Aux battle was ever won without one.",
+    quote:
+      "No Aux battle was ever won according to plan, but no Aux battle was ever won without one.",
     author: "Dwight D. Auxenhower",
   },
   {
-    quote: "The rush of AuxBattle is often a potent and lethal addiction, for music is a drug.",
+    quote:
+      "The rush of AuxBattle is often a potent and lethal addiction, for music is a drug.",
     author: "Chris Hedgaux",
   },
   {
@@ -33,7 +35,8 @@ export const quotes = [
     author: "Auxtrand Russell",
   },
   {
-    quote: "The supreme art of aux battle is to subdue the enemy without fighting.",
+    quote:
+      "The supreme art of aux battle is to subdue the enemy without fighting.",
     author: "Aux Tzu",
   },
   {
