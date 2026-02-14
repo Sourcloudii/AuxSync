@@ -5,6 +5,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 //components
 import { Header } from "../Header/Header";
 import { Main } from "../Main/Main";
+import { Room } from "../Room/Room";
 import { JoinModal } from "../JoinModal/JoinModal";
 
 import { apiKey } from "../../utils/constants";
@@ -29,7 +30,7 @@ function App() {
         positionLeft: Math.random() * 100,
         positionTop: Math.random() * 20 + 10,
         duration: Math.random() * 10 + 9,
-        opacity: Math.random() * 0.5 + 0.3,
+        opacity: Math.random() * 0.5 + 0.2,
       }));
       setPositionedGifs(positioned);
     });
@@ -72,7 +73,7 @@ function App() {
               />
             }
           />
-          <Route path="/host-page" /*element={<HostPage />}*/ />
+          <Route path="/room" element={<Room />} />
           <Route path="/join-page" /*element={<JoinPage />}*/ />
           <Route path="/lobby" /*element={<Lobby gifs={gifs} />}*/ />
           <Route path="" /*element={ }*/ />
