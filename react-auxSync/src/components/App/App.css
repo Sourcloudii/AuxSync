@@ -33,6 +33,14 @@
     fade linear infinite;
 }
 
+.text_shadow {
+  text-shadow:
+    -0.6px -0.6px 0 #d22,
+    0.6px -0.6px 0 #d22,
+    -0.6px 0.6px 0 #d22,
+    0.6px 0.6px 0 #d22;
+}
+
 @keyframes fall {
   0% {
     transform: translateY(-115px);
