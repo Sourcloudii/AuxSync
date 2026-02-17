@@ -17,6 +17,15 @@
   font-size: 32px;
   font-weight: 400;
   margin: 0 0 32px;
+  /* padding: 8px 10px;
+  border-radius: 20px;
+  background-color: #edc8b8;
+  
+  text-shadow:
+    -0.6px -0.6px 0 rgb(255, 231, 231),
+    0.6px -0.6px 0 rgb(255, 231, 231),
+    -0.6px 0.6px 0 rgb(255, 231, 231),
+    0.6px 0.6px 0 rgb(255, 231, 231); */
 }
 
 .room__lobby-players__wrapper {

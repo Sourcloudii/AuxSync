@@ -71,3 +71,11 @@
   color: #fff;
   cursor: pointer;
 }
+
+.join-modal__btn:hover {
+  background-color: #b6da82;
+}
+
+.join-modal__btn:active {
+  background-color: #3a9c62;
+}
