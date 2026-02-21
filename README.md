@@ -13,5 +13,5 @@
 
 **Project Link**
 
-You can Click this [link]() to view the website during prodcution.
+You can Click this [link](https://sourcloudii.github.io/AuxSync/) to view the website during prodcution.
 
