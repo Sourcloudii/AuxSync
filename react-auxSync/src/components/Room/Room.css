@@ -10,7 +10,7 @@
 .room__lobby-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .room__lobby-code {
@@ -47,6 +47,8 @@
   padding: 25px 45px;
   background-color: #edc8b8;
   border-radius: 40px;
+  position: relative;
+  border: 5px solid #000;
 }
 
 .room__exit-btn {
@@ -57,4 +59,6 @@
   width: 75px;
   height: 75px;
   cursor: pointer;
+  position: absolute;
+  left: -100px;
 }
