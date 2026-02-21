@@ -9,24 +9,42 @@
   font-size: 32px;
   font-weight: 700;
   margin: 0;
-  /* padding: 8px 10px;
-  border-radius: 20px;
-  background-color: #edc8b8; */
 }
 
-.settings_options-btn__wrapper {
+.settings_options__text-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 70px;
+  gap: 10px;
 }
 
-.settings_options-btn {
+.settings_options-label {
   border: none;
   background: none;
   font-size: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.settings_options-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.settings_options__song-selection-time-select {
+  width: 300px;
+  height: 70px;
+  display: flex;
+  font-size: 40px;
+  padding-left: 60px;
+  border: 3px solid #000;
+  border-radius: 25px;
+  background-color: #edc8b8;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   cursor: pointer;
-  /* padding: 8px 10px;
-  border-radius: 20px;
-  background-color: #edc8b8; */
+  background-repeat: no-repeat;
+  background-position: right 20px center;
 }
