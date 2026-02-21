@@ -1,8 +1,6 @@
 import "./Instructions.css";
 import { useState } from "react";
 import { instructions } from "../../utils/constants";
-import leftArrow from "../../images/leftArrow.svg";
-import rightArrow from "../../images/rightArrow.svg";
 
 export function Instructions() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -21,34 +19,17 @@ export function Instructions() {
           ))}
         </ol>
         <div className="instructions-btn__wrapper">
-          <button
-            className="instructions-btn instructions-btn_left-arrow"
-            onClick={() => {
-              activeSlide === 0
-                ? setActiveSlide(3)
-                : setActiveSlide(activeSlide - 1);
-            }}
-          >
-            <img
-              src={leftArrow}
-              alt="Left Arrow"
-              className="instructions-btn_left-arrow_img"
-            />
-          </button>
-          <button
-            className="instructions-btn instructions-btn_right-arrow"
-            onClick={() => {
-              activeSlide === 3
-                ? setActiveSlide(0)
-                : setActiveSlide(activeSlide + 1);
-            }}
-          >
-            <img
-              src={rightArrow}
-              alt="Right Arrow"
-              className="instructions-btn_right-arrow_img"
-            />
-          </button>
+          {[0, 1, 2, 3].map((slideIndex) => (
+            <button
+              key={slideIndex}
+              className={`instructions-btn ${
+                activeSlide === slideIndex ? "instructions-btn_active" : ""
+              }`}
+              onClick={() => setActiveSlide(slideIndex)}
+              aria-label={`instruction slide ${slideIndex + 1}`}
+            >
+            </button>
+          ))}
         </div>
       </div>
     </section>

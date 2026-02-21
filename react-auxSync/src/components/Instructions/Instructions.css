@@ -39,23 +39,16 @@
 }
 
 .instructions-btn {
-  border-style: none;
-  padding: 0;
-  background-color: transparent;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #edc8b8;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.instructions-btn_left-arrow_img:hover {
-  content: url(../../images/leftArrow-hover.svg);
-}
-
-.instructions-btn_left-arrow_img:active {
-  content: url(../../images/leftArrow-click.svg);
-}
-
-.instructions-btn_right-arrow_img:hover {
-  content: url(../../images/rightArrow-hover.svg);
-}
-
-.instructions-btn_right-arrow_img:active {
-  content: url(../../images/rightArrow-click.svg);
+.instructions-btn_active {
+  border: 5px solid #fff;
 }

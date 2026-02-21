@@ -1,6 +1,6 @@
 import "./Room.css";
 import exitButton from "../../images/exit-btn.svg";
-// import clipBoard from "../../images/clipboard.png";
+// import clipBoard from "../../images/clipboard.svg";
 import { MatchSettings } from "./MatchSettings";
 
 import { Link } from "react-router-dom";
@@ -12,20 +12,18 @@ export function Room({ lobbyCode }) {
       <div className="room__content">
         <div className="room__lobby-info">
           <h2
-            className="room__lobby-code"
+            className="room__lobby-code text_shadow"
             // style={{ cursor: `url(${clipBoard}), auto` }}
           >
             Lobby Code: 7B2W
           </h2>
-          <div className="room__lobby-players__wrapper">
-            <Link className="room__exit-btn" to="/">
-              <img src={exitButton} alt="Exit" />
-            </Link>
-            <div className="room__lobby-players-info">
-              <p className="room__lobby-host player-label">Host: </p>
-              <p className="room__lobby-players player-label">Players: </p>
-              {/*Add players later*/}
-            </div>
+          <div className="room__lobby-players-info">
+          <Link className="room__exit-btn" to="/">
+            <img src={exitButton} alt="Exit" />
+          </Link>
+            <p className="room__lobby-host player-label">Host: </p>
+            <p className="room__lobby-players player-label">Players: </p>
+            {/*Add players later*/}
           </div>
         </div>
         <MatchSettings />
