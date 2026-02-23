@@ -4,11 +4,16 @@ import arrowDown from "../../images/arrow-down.svg";
 import { useState } from "react";
 
 export function MatchSettings() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSongSelectionTimeOpen, setIsSongSelectionTimeOpen] = useState(false);
+  const [isSongTimeOpen, setIsSongTimeOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+  const toggleSongSelectionTimeDropdown = () => {
+    setIsSongSelectionTimeOpen(!isSongSelectionTimeOpen);
   };
+
+  const toggleSongTimeDropdown = () => {
+    setIsSongTimeOpen(!isSongTimeOpen);
+  }
 
   return (
     <div className="settings_options">
@@ -20,10 +25,10 @@ export function MatchSettings() {
           >
             Song Selection Time
           </label>
-          <select className="settings_options__song-selection-time-select" 
-            onClick={toggleDropdown}
+          <select className="settings_options-select settings_options__song-selection-time-select" 
+            onClick={toggleSongSelectionTimeDropdown}
             style={{
-              backgroundImage: isOpen ? `url(${arrowDown})` : `url(${arrowUp})`,
+              backgroundImage: isSongSelectionTimeOpen ? `url(${arrowDown})` : `url(${arrowUp})`,
             }}>
             {[1, 2, 3, 4, 5].map((time) => (
               <option
@@ -39,6 +44,20 @@ export function MatchSettings() {
           <label className="settings_options-label settings_options__song-length text_shadow">
             Song Length
           </label>
+          <select className="settings_options-select settings_options__song-length-select" 
+            onClick={toggleSongTimeDropdown}
+            style={{
+              backgroundImage: isSongTimeOpen ? `url(${arrowDown})` : `url(${arrowUp})`,
+            }}>
+            {[30, 60, 90].map((time) => (
+              <option
+                value={`${time} Second${time > 1 ? "s" : ""}`}
+                className="settings_options__song-length-option"
+              >
+                {time} Seconds
+              </option>
+            ))}
+          </select>
         </div>
         <div className="settings_options-wrapper settings_options__gif-options-wrapper">
           <label className="settings_options-label settings_options__gif-options text_shadow">

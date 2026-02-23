@@ -17,6 +17,7 @@
   font-size: 32px;
   font-weight: 400;
   margin: 0 0 32px;
+  cursor: url(../../images//clipboard.svg), auto;
   /* padding: 8px 10px;
   border-radius: 20px;
   background-color: #edc8b8;

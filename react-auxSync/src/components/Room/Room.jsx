@@ -1,6 +1,5 @@
 import "./Room.css";
 import exitButton from "../../images/exit-btn.svg";
-// import clipBoard from "../../images/clipboard.svg";
 import { MatchSettings } from "./MatchSettings";
 
 import { Link } from "react-router-dom";
@@ -13,7 +12,6 @@ export function Room({ lobbyCode }) {
         <div className="room__lobby-info">
           <h2
             className="room__lobby-code text_shadow"
-            // style={{ cursor: `url(${clipBoard}), auto` }}
           >
             Lobby Code: 7B2W
           </h2>

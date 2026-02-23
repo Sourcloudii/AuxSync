@@ -32,7 +32,7 @@
   gap: 5px;
 }
 
-.settings_options__song-selection-time-select {
+.settings_options-select {
   width: 300px;
   height: 70px;
   display: flex;
