@@ -13,31 +13,62 @@
   align-items: center;
 }
 
-.room__lobby-code {
+.room__lobby-code-btn {
   font-size: 32px;
   font-weight: 400;
-  margin: 0 0 32px;
-  cursor: url(../../images//clipboard.svg), auto;
-  /* padding: 8px 10px;
-  border-radius: 20px;
-  background-color: #edc8b8;
-  
-  text-shadow:
-    -0.6px -0.6px 0 rgb(255, 231, 231),
-    0.6px -0.6px 0 rgb(255, 231, 231),
-    -0.6px 0.6px 0 rgb(255, 231, 231),
-    0.6px 0.6px 0 rgb(255, 231, 231); */
+  padding: 0;
+  margin: 0 0 18px;
+  cursor:
+    url(../../images/clipboard.svg) 0 0,
+    pointer;
+  border: none;
+  background: none;
 }
 
-.room__lobby-players__wrapper {
+.room__lobby-wrapper {
   display: flex;
-  gap: 50px;
+  gap: 30px;
 }
 
-.player-label {
+.room__lobby-host-wrapper {
+  align-items: center;
+}
+
+.room__lobby-host {
   color: #fff;
-  font-size: 32px;
+  font-size: 40px;
+  font-weight: 700;
   margin: 0;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+}
+
+.room__lobby-players-wrapper {
+  align-items: baseline;
+}
+
+.room__lobby-players-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.room__lobby-players {
+  color: #fff;
+  font-size: 34px;
+  font-weight: 700;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+}
+
+.title-label {
+  color: #fff;
+  margin: 0;
+  font-size: 40px;
+  line-height: 48px;
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.4);
 }
 
 .room__lobby-players-info {
@@ -50,6 +81,7 @@
   border-radius: 40px;
   position: relative;
   border: 5px solid #000;
+  gap: 20px;
 }
 
 .room__exit-btn {
