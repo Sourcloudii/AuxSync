@@ -18,15 +18,6 @@
   font-weight: 400;
   margin: 0 0 32px;
   cursor: url(../../images//clipboard.svg), auto;
-  /* padding: 8px 10px;
-  border-radius: 20px;
-  background-color: #edc8b8;
-  
-  text-shadow:
-    -0.6px -0.6px 0 rgb(255, 231, 231),
-    0.6px -0.6px 0 rgb(255, 231, 231),
-    -0.6px 0.6px 0 rgb(255, 231, 231),
-    0.6px 0.6px 0 rgb(255, 231, 231); */
 }
 
 .room__lobby-players__wrapper {
@@ -46,7 +37,7 @@
   width: 585px;
   height: 700px;
   padding: 25px 45px;
-  background-color: #edc8b8;
+  background-color: #ffd4c2;
   border-radius: 40px;
   position: relative;
   border: 5px solid #000;
