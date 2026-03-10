@@ -1,5 +1,3 @@
-export const apiKey = "WalJLzD6rC1dYiLFNsWW7rcrZBvaAem0";
-
 export const instructions = [
   "Choose a Gif for your friends to battle with",
   "Go against friends to sync the perfect song to the Gif.",
