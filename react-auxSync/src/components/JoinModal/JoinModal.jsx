@@ -21,6 +21,8 @@ export function JoinModal({ preventDefault, closeModal, modalState }) {
             placeholder="Enter Here"
             maxLength={4}
             minLength={4}
+            style={{ textTransform: "uppercase" }}
+            onChange={e => (e.target.value = e.target.value.toUpperCase())}
           />
           <button className="join-modal__btn" type="submit">
             Join

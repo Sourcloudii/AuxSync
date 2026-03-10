@@ -3,7 +3,16 @@ import { Link } from "react-router-dom";
 import auxCord from "../../images/aux-cord.svg";
 import bluetooth from "../../images/bluetooth.svg";
 
-export function Options({ openJoinModal }) {
+function generateLobbyCode() {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let code = "";
+  for (let i = 0; i < 4; i++) {
+    code += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return code;
+}
+
+export function Options({ openJoinModal, setLobbyCode, setHost }) {
   return (
     <div className="options">
       <div className="options__content">
@@ -20,7 +29,15 @@ export function Options({ openJoinModal }) {
           <div className="btn-wrapper">
             <img src={bluetooth} alt="Bluetooth" className="bluetooth-img" />
             <Link to="/room" className="options__link">
-              <button className="options_btn options-host__link">Host</button>
+              <button
+                className="options_btn options-host__link"
+                onClick={() => {
+                  setLobbyCode(generateLobbyCode());
+                  setHost(true);
+                }}
+              >
+                Host
+              </button>
             </Link>
           </div>
         </nav>

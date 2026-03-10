@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
+  width: 352px;
 }
 
 .settings_options__title {
@@ -32,13 +33,17 @@
   gap: 5px;
 }
 
+.dropdown_options {
+  cursor: pointer;
+}
+
 .settings_options-select {
   width: 300px;
   height: 70px;
   display: flex;
   font-size: 40px;
-  padding-left: 60px;
-  border: 3px solid #000;
+  padding-left: 30px;
+  border: 4px solid #000;
   border-radius: 25px;
   background-color: #edc8b8;
   -webkit-appearance: none;
@@ -47,4 +52,144 @@
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: right 20px center;
+}
+
+.settings_options__gif-options-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.settings_options__gif-options-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.settings_options__gif-options-btns-wrapper {
+  display: flex;
+  width: 100%;
+  height: 70px;
+}
+
+.settings_options__gif-options-sub-btns-wrapper {
+  display: flex;
+  height: 42px;
+  overflow: hidden;
+  transition:
+    max-width 0.35s ease,
+    opacity 0.3s ease;
+}
+
+.show-sub-options {
+  max-width: 154px;
+  opacity: 1;
+}
+
+.hide-sub-options {
+  max-width: 0;
+  opacity: 0;
+}
+
+.settings_options__gif-options-sub-btn {
+  background-color: #edc8b8;
+  border: 4px solid #000;
+  padding: 0 13px;
+  font-size: 32px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.three-option {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.six-option {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.settings_options__gif-options-btn {
+  background-color: #edc8b8;
+  padding: 15px 8px;
+  font-size: 32px;
+  border: 4px solid #000;
+  cursor: pointer;
+}
+
+.single-option {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.lens-option {
+  width: 70px;
+  height: 70px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-position: center;
+  cursor: pointer;
+}
+
+.settings_options__rounds-counter,
+.settings_options__voting-time-counter {
+  width: 150px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.settings_options__rounds-value,
+.settings_options__voting-time-value {
+  font-size: 40px;
+  padding: 8px 23px;
+  border: 4px solid #000;
+  background-color: #edc8b8;
+}
+
+.settings_options__rounds-btn,
+.settings_options__voting-time-btn {
+  width: 40px;
+  height: 70px;
+  background-color: #edc8b8;
+  border: 4px solid #000;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.rounds-decrement,
+.voting-time-decrement {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.rounds-increment,
+.voting-time-increment {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.settings_options__gif-options-btn.selected {
+  background-color: #eebb9e;
+}
+
+.settings_options__gif-options-sub-btn.selected {
+  background-color: #eebb9e;
+}
+
+.lens-disabled {
+  background-image: url("../../images/lens-disabled.svg");
+  background-repeat: no-repeat;
+  cursor:not-allowed;
+}
+
+.lens-enabled {
+  background-image: url("../../images/lens-enabled.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
 }

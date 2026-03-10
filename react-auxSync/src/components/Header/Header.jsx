@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import title from "../../images/title.svg";
 
 export function Header({ location }) {
-  return location === "/" ? (
+  return location === "/" || location === "/lobby" ? (
     <header className="header">
       <div className="header__content">
         <Link to="/" className="header__title-link">

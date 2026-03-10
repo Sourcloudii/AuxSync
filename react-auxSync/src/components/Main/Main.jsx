@@ -3,21 +3,27 @@ import { Options } from "../Options/Options.jsx";
 import { Instructions } from "../Instructions/Instructions.jsx";
 
 export function Main({
-  handleUserChange,
   user,
+  handleUserChange,
   preventDefault,
   openJoinModal,
+  setLobbyCode,
+  setHost,
 }) {
   return (
     <main className="main">
       <div className="main__content">
-        <Options openJoinModal={openJoinModal} />
+        <Options
+          openJoinModal={openJoinModal}
+          setLobbyCode={setLobbyCode}
+          setHost={setHost}
+        />
         <form className="nickname-form" onSubmit={preventDefault}>
           <input
             className="nickname_input"
             placeholder="Nickname here"
             minLength="2"
-            maxLength="15"
+            maxLength="10"
             onChange={handleUserChange}
             value={user}
           />
