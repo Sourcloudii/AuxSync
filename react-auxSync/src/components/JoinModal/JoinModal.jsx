@@ -10,7 +10,11 @@ export function JoinModal({ preventDefault, closeModal, modalState }) {
   return (
     <div className={`join-modal ${modalState ? "modal--active" : ""}`}>
       <div className="join-modal__content">
-        <button className="join-modal__close-btn" onClick={closeModal}>
+        <button
+          className="join-modal__close-btn"
+          onClick={closeModal}
+          aria-label="Close Join Modal"
+        >
           <img src={closeButton} alt="Close" />
         </button>
         <h2 className="join-modal__title text_shadow">Room Code:</h2>
@@ -18,7 +22,7 @@ export function JoinModal({ preventDefault, closeModal, modalState }) {
           <input
             className="join-modal__input"
             type="text"
-            placeholder="Enter Here"
+            placeholder="A1B2"
             maxLength={4}
             minLength={4}
             style={{ textTransform: "uppercase" }}

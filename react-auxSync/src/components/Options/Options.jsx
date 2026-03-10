@@ -22,6 +22,8 @@ export function Options({ openJoinModal, setLobbyCode, setHost }) {
             <button
               className="options_btn options-join__link"
               onClick={openJoinModal}
+              aria-label="Open Join Modal"
+              title="Join a Room"
             >
               Join
             </button>
@@ -35,6 +37,8 @@ export function Options({ openJoinModal, setLobbyCode, setHost }) {
                   setLobbyCode(generateLobbyCode());
                   setHost(true);
                 }}
+                aria-label="Host a Room"
+                title="Host a Room"
               >
                 Host
               </button>

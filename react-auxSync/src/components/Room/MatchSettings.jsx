@@ -138,7 +138,10 @@ export function MatchSettings() {
             <button
               className={`settings_options__gif-options-btn lens-option ${searchState ? "lens-enabled" : "lens-disabled"}`}
               onClick={toggleSearchState}
-            ></button>
+              aria-label="Toggle GIF Search"
+              title="Toggle GIF Search"
+            >
+            </button>
           </div>
         </div>
         <div className="settings_options-wrapper settings_options__rounds-wrapper">

@@ -27,6 +27,7 @@ export function Instructions() {
               }`}
               onClick={() => setActiveSlide(slideIndex)}
               aria-label={`instruction slide ${slideIndex + 1}`}
+              title={`Instruction ${slideIndex + 1}`}
             >
             </button>
           ))}

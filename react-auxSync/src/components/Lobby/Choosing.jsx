@@ -21,7 +21,12 @@ export function Choosing({ gifs, setChosenGif, setIsGifChosen, max, player }) {
 
   return (
     <div className="lobby__choosing-wrapper">
-      <button className="lobby__choosing-btn" onClick={handleReshuffle}>
+      <button
+        className="lobby__choosing-btn"
+        onClick={handleReshuffle}
+        aria-label="Reshuffle GIFs"
+        title="Reshuffle GIFs"
+      >
         <img
           src={refreshIcon}
           alt="Reshuffle"
