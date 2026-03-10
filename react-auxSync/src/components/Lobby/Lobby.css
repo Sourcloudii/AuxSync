@@ -13,6 +13,7 @@
   align-items: center;
   gap: 35px;
   padding: 10px 60px;
+  background-color: #f8d3b3;
   border: 3px solid #000000;
   border-radius: 20px;
 }

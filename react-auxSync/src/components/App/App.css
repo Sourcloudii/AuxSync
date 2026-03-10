@@ -2,8 +2,8 @@
   background: #eb733f;
   background: linear-gradient(
     0deg,
-    rgb(240, 160, 125) 0%,
-    rgba(255, 175, 105, 1) 50%,
+    rgba(240, 160, 125, 1) 0%,
+    rgba(255, 175, 105, 0.9) 25%,
     rgba(254, 216, 183, 1) 100%
   );
   font-family: "Sen", "Roboto", sans-serif;
