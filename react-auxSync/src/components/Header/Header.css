@@ -1,21 +1,11 @@
 .header {
-  width: 100%;
-}
-
-.header__content {
   display: flex;
   justify-content: center;
-  height: 100px;
-}
-.header__content_in-game {
-  justify-content: flex-start;
-  padding-left: 25px;
+  height: 90px;
 }
 
-.header__title-link {
-  display: flex;
-  align-items: center;
-  height: 100%;
+.header_in-game {
+  height: 80px;
 }
 
 .header__title {
