@@ -40,6 +40,7 @@ After the configured number of rounds, the player with the highest score wins.
 
 ## Tech Stack
 
+- **React**
 - **Node.js**
 - **Express**
 - **WebSockets / Socket.IO**
