@@ -15,7 +15,8 @@
     "dotenv": "^17.3.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.13.0"
+    "react-router-dom": "^7.13.0",
+    "socket.io-client": "^4.8.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -29,5 +30,5 @@
     "globals": "^16.5.0",
     "vite": "^7.2.4"
   },
-  "homepage": "https://Sourcloudii.github.io/AuxSync"
+  "homepage": "https://Sourcloudii.github.io/react-auxsync"
 }
