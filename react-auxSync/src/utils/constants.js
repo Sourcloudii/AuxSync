@@ -1,3 +1,45 @@
+import angry from "../images/pfps/angry.jpg";
+import boss from "../images/pfps/boss.jpg";
+import cabbit from "../images/pfps/cabbit.jpg";
+import cat from "../images/pfps/cat.jpg";
+import cion from "../images/pfps/cion.jpg";
+import cute from "../images/pfps/cute.jpg";
+import extraSad from "../images/pfps/extra-sad.jpg";
+import locked from "../images/pfps/locked.jpg";
+import poor from "../images/pfps/poor.jpg";
+import pray from "../images/pfps/pray.jpg";
+import sad from "../images/pfps/sad.jpg";
+import shield from "../images/pfps/shield.jpg";
+import skyskraper from "../images/pfps/skyskraper.jpg";
+import sleepy from "../images/pfps/sleepy.jpg";
+import sunglasses from "../images/pfps/sunglasses.jpg";
+
+export const pfps = [
+  angry,
+  boss,
+  cabbit,
+  cat,
+  cion,
+  cute,
+  extraSad,
+  locked,
+  poor,
+  pray,
+  sad,
+  shield,
+  skyskraper,
+  sleepy,
+  sunglasses,
+];
+
+export function getPfpForPlayer(socketId) {
+  let hash = 0;
+  for (let i = 0; i < socketId.length; i++) {
+    hash = (hash * 31 + socketId.charCodeAt(i)) | 0;
+  }
+  return pfps[((hash % pfps.length) + pfps.length) % pfps.length];
+}
+
 export const instructions = [
   "Choose a Gif for your friends to battle with",
   "Go against friends to sync the perfect song to the Gif.",
