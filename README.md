@@ -41,10 +41,10 @@ After the configured number of rounds, the player with the highest score wins.
 ## Tech Stack
 
 - **React**
-- **Node.js**
-- **Express**
+- **Python**
+- **FastAPI**
 - **WebSockets / Socket.IO**
-- **JavaScript**
+- **ytmusicapi**
 
 ---
 
@@ -56,5 +56,5 @@ Timing, humor, and creativity often win the round.
 
 ## Demo
 
-You can Click this [link](https://sourcloudii.github.io/AuxSync/) to view the website during prodcution.
+You can Click this [link](https://sourcloudii.github.io/AuxSync/) to view the website during production.
 
