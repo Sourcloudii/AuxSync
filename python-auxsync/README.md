@@ -1,7 +1,5 @@
 # python-auxsync
 
-Python (FastAPI + python-socketio) backend for AuxSync, using `ytmusicapi` for music search.
-
 ## Setup
 
 ```bash
@@ -23,8 +21,6 @@ copy .env.example .env
 # From the python-auxsync directory
 .venv/Scripts/python.exe src/main.py
 ```
-
-Server starts on `http://localhost:3001` by default.
 
 ## Project structure
 
