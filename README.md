@@ -44,7 +44,6 @@ After the configured number of rounds, the player with the highest score wins.
 - **Python**
 - **FastAPI**
 - **WebSockets / Socket.IO**
-- **ytmusicapi**
 
 ---
 
