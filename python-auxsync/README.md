@@ -5,22 +5,25 @@
 ```bash
 # 1. Create and activate virtualenv
 py -m venv .venv
-.venv/Scripts/activate     # Windows
-# source .venv/bin/activate  # macOS/Linux
+.venv/Scripts/activate
 
 # 2. Install dependencies
 pip install -r requirements.txt
-
-# 3. Copy env file and fill in your key
-copy .env.example .env
 ```
 
 ## Running
 
 ```bash
-# From the python-auxsync directory
+# Recommended: from the repo root - starts backend + frontend together
+npm run dev
+
+# Or backend only, from the python-auxsync directory
 .venv/Scripts/python.exe src/main.py
 ```
+
+With `DEV_RELOAD=1` in `.env`, the server auto-restarts whenever a backend
+file changes (in-memory rooms are wiped on each restart). Leave it unset in
+production.
 
 ## Project structure
 
@@ -31,7 +34,6 @@ src/
     constants.py       # Shared game constants
     environment.py     # Env var loading + validation
   routes/
-    health.py          # GET /api/health
     rooms.py           # POST/GET /api/rooms
     music.py           # GET /api/youtube/search  (ytmusicapi)
     gifs.py            # GET /api/gifs/trending|search
