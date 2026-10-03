@@ -1,0 +1,37 @@
+.header {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  height: clamp(48px, min(6vw, 12vh), 90px);
+  position: absolute;
+}
+
+.header_in-room {
+  height: clamp(42px, min(5.3vw, 10vh), 80px);
+}
+
+.header_in-lobby {
+  flex: none;
+  width: auto;
+  top: 20px;
+  left: 10px;
+}
+
+.header__title-link {
+  display: flex;
+  height: 100%;
+  max-width: 100%;
+}
+
+.header__title {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .header_in-room, .header_in-lobby {
+    visibility: hidden;
+  }
+}

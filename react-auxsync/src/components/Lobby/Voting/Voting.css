@@ -1,0 +1,203 @@
+.voting {
+  --card-min: clamp(150px, 42vw, 200px);
+  --card-max: clamp(200px, 24vw, 260px);
+  --art-size: clamp(38px, min(3.6vw, 6.4vh), 50px);
+  --sticker-size: clamp(26px, min(2.6vw, 4.6vh), 35px);
+  --sticker-bleed: 18px;
+  --edge-fade: clamp(14px, 2.5vh, 26px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.voting__gif {
+  width: clamp(200px, min(23.3vw, 34vh), 350px);
+  height: clamp(100px, min(11.3vw, 17vh), 170px);
+  max-width: 100%;
+  object-fit: cover;
+  margin: clamp(10px, 2vw, 20px) 0 clamp(16px, 3vw, 40px);
+}
+
+.voting__timer {
+  margin: 0;
+  font-size: clamp(18px, min(1.9vw, 3.4vh), 28px);
+  font-weight: 700;
+  text-align: center;
+}
+
+.voting__song-submissions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--card-min), 100%), var(--card-max)));
+  gap: clamp(16px, 2vw, 30px) clamp(24px, 3.3vw, 50px);
+  justify-content: center;
+  width: 100%;
+  padding: var(--sticker-bleed);
+  max-height: min(1200px, 82dvh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: #00000040 transparent;
+}
+
+.voting__song-submission {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 12px);
+  width: 100%;
+  max-width: var(--card-max);
+  min-height: max(var(--tap-target), clamp(60px, min(6vw, 10vh), 80px));
+  padding: clamp(6px, 1vw, 10px);
+  background-color: var(--c-panel-raised);
+  border: 3px solid #000;
+  border-radius: 10px;
+  transition: box-shadow 0.15s ease;
+}
+
+.voting__song-submission--votable {
+  cursor: pointer;
+}
+
+.voting__song-submission--voted {
+  box-shadow: #6fd66f 0 0 14px 4px;
+}
+
+.voting__song-submission--own {
+  opacity: 0.6;
+}
+
+.voting__song-submission--selected {
+  box-shadow: #d9e25e 0 0 14px 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .voting__song-submission--votable:not(.voting__song-submission--selected):hover {
+    box-shadow: #ffffffcc 0 0 14px 4px;
+  }
+
+  .voting__song-submission--selected {
+    cursor: none;
+  }
+}
+
+.voting__cursor {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.voting__cursor-img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  animation: voting-cursor-pulse 0.9s ease-in-out infinite;
+}
+
+@keyframes voting-cursor-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+}
+
+.voting__confirm-hint {
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  translate: -50% 0;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  background-color: #d9e25e;
+  border: 2px solid #000;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .voting__confirm-hint {
+    display: none;
+  }
+}
+
+.voting__song-art {
+  width: var(--art-size);
+  height: var(--art-size);
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.voting__song-text {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.voting__song-player,
+.voting__song-info {
+  margin: 0;
+  font-size: clamp(13px, min(1.4vw, 2.4vh), 16px);
+  font-weight: 500;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.voting__vote-sticker {
+  position: absolute;
+  width: var(--sticker-size);
+  height: var(--sticker-size);
+  border-radius: 50%;
+  border: 3px solid #000;
+  transform: rotate(var(--sticker-rot, -6deg));
+  object-fit: cover;
+  pointer-events: none;
+  animation: voting-sticker-stamp 0.3s cubic-bezier(0.2, 0.7, 0.3, 1.4) both;
+}
+
+@keyframes voting-sticker-stamp {
+  0% {
+    transform: rotate(var(--sticker-rot, -6deg)) scale(2.4);
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  75% {
+    transform: rotate(var(--sticker-rot, -6deg)) scale(0.92);
+  }
+  100% {
+    transform: rotate(var(--sticker-rot, -6deg)) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .voting__gif {
+    margin: clamp(4px, 1vw, 8px) 0 clamp(10px, 2vw, 16px);
+  }
+
+  .voting__song-submissions {
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--card-min), 100%), 1fr));
+    justify-items: center;
+    gap: clamp(14px, 2vw, 22px) clamp(18px, 3vw, 34px);
+    padding: calc(var(--sticker-bleed) + var(--edge-fade)) var(--sticker-bleed);
+    max-height: min(320px, 34dvh);
+    mask-image: linear-gradient(
+      to bottom,
+      #0000 0,
+      #000 var(--edge-fade),
+      #000 calc(100% - var(--edge-fade)),
+      #0000 100%
+    );
+  }
+}

@@ -1,0 +1,135 @@
+.song-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #c8a08c;
+  border: 3px solid #000;
+  border-radius: 20px;
+  padding: 15px 20px;
+  margin-top: 15px;
+  position: relative;
+  width: 100%;
+  max-width: min(540px, 100%);
+}
+
+.song-player__track-info {
+  font-size: clamp(15px, 1.6vw, 18px);
+  margin: 6px 0 12px;
+  text-align: center;
+}
+
+.song-player__seekbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.song-player__region-label {
+  font-size: 13px;
+  background: var(--c-panel-raised);
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 1px 8px;
+  margin-bottom: 4px;
+  pointer-events: none;
+}
+
+.song-player__seekbar-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+
+.song-player__time {
+  font-size: 13px;
+  min-width: 32px;
+  text-align: center;
+  user-select: none;
+}
+
+.song-player__track {
+  flex: 1;
+  min-width: 24px;
+  height: 28px;
+  background: var(--c-panel-raised);
+  border-radius: 10px;
+  position: relative;
+}
+
+.song-player__region {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: #d08d21;
+  cursor: grab;
+  z-index: 2;
+  min-width: 6px;
+  border: 2px solid #000;
+  touch-action: none;
+}
+
+.song-player__region--dragging {
+  cursor: grabbing;
+}
+
+.song-player__handle {
+  position: absolute;
+  top: -3px;
+  width: 3px;
+  height: calc(100% + 6px);
+  background: #fed8b7;
+  border: 1px solid #00000040;
+  box-shadow: 0px 0px 10px #00000080;
+  border-radius: 4px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.song-player__handle--left {
+  left: -5px;
+}
+
+.song-player__handle--right {
+  right: -5px;
+}
+
+.song-player__playbar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #ff7700;
+  pointer-events: none;
+  z-index: 1;
+  transition: width 0.2s linear;
+}
+
+.song-player__video-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-top: 4px;
+}
+
+.song-player__video-toggle img {
+  width: 20px;
+  height: 20px;
+}
+
+.song-player__video-container {
+  width: clamp(280px, 30vw, 100%);
+  margin-top: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #3e2c1e;
+}
+
+.song-player__video {
+  width: 100%;
+  height: 100%;
+}

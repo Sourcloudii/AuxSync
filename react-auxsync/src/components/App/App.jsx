@@ -1,144 +1,180 @@
 import "./App.css";
-import { useState, useEffect, useRef } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useState } from "react";
+import {
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+  useMatch,
+} from "react-router-dom";
 
-//components
 import { MatchSettingsProvidor } from "../../contexts/MatchSettingsProvidor";
-import { Header } from "../Header/Header";
-import { Main } from "../Main/Main";
+import { Header } from "../shared/Header/Header";
+import { Main } from "../Home/Main/Main";
 import { Room } from "../Room/Room";
 import { Lobby } from "../Lobby/Lobby";
-import { JoinModal } from "../JoinModal/JoinModal";
+import { JoinModal } from "../Home/JoinModal/JoinModal";
+import { FallingGifs } from "./FallingGifs";
 
-const giphyApiKey = import.meta.env.VITE_GIPHY_API_KEY;
-import { getTrendingGifs } from "../../utils/giphyApi";
-import { refreshAccessToken } from "../../utils/spotifyAuth";
-import { searchTracks } from "../../utils/spotifyApi";
+import { useTrendingGifs } from "../../utils/gifFunctions/useTrendingGifs";
+import { useSongSearch } from "../../utils/youtubeFunctions/useSongSearch";
+import { useRoomConnection } from "../../utils/socketFunctions/useRoomConnection";
+import { useYouTubePlayer } from "../../utils/youtubeFunctions/useYouTubePlayer";
+
+const preventDefault = e => e.preventDefault();
 
 function App() {
   const [user, setUser] = useState("");
-  const [gifs, setGifs] = useState([]);
-  const [positionedGifs, setPositionedGifs] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [modalState, setModalState] = useState(false);
-  const [host, setHost] = useState(null);
-  const [players, setPlayers] = useState(["Ken", "Jack", "Eli"]);
-  const [lobbyCode, setLobbyCode] = useState("");
-  const [accessToken, setAccessToken] = useState("");
-
-  const searchControllerRef = useRef(null);
+  const [manualModal, setManualModal] = useState(false);
+  const [shake, setShake] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    refreshAccessToken()
-      .then(token => {
-        setAccessToken(token);
-      })
-      .catch(console.error);
-  }, []);
+  const invite = useMatch("/join/:roomCode");
+  const inviteCode = (invite?.params.roomCode ?? "").toUpperCase().slice(0, 4);
+  const modalState = manualModal || Boolean(invite);
 
-  useEffect(() => {
-    getTrendingGifs({ apiKey: giphyApiKey }).then(e => {
-      setGifs(e.data);
-      const positioned = e.data.map(gif => ({
-        ...gif,
-        positionLeft: Math.random() * 100,
-        positionTop: Math.random() * 20 + 10,
-        duration: Math.random() * 10 + 9,
-        opacity: Math.random() * 0.5 + 0.2,
-      }));
-      setPositionedGifs(positioned);
-    });
-  }, []);
+  const { gifs, positionedGifs } = useTrendingGifs();
+
+  const {
+    players,
+    isHost,
+    lobbyCode,
+    maxPlayers,
+    gameState,
+    hostError,
+    rejoinInfo,
+    myPlayerId,
+    isWaiting,
+    hostRoom,
+    joinRoom,
+    rejoinRoom,
+    dismissRejoin,
+    startGame,
+    leaveRoom,
+  } = useRoomConnection(setUser);
+
+  const { searchResults, handleSongSearchChange, resetSearch } =
+    useSongSearch(lobbyCode);
+
+  const {
+    isReady: playerReady,
+    playVideo,
+    duration,
+    isPaused,
+    pauseVideo,
+    resumeVideo,
+    seekTo,
+    setVolume,
+    getCurrentTime,
+  } = useYouTubePlayer();
+
+  const requireNickname = () => {
+    if (user.trim()) return true;
+    setShake(true);
+    setTimeout(() => setShake(false), 500);
+    return false;
+  };
+
+  const handleHostRoom = () => {
+    if (!requireNickname()) return;
+    hostRoom(user.trim());
+  };
+
+  const handleJoinRoom = roomCode => {
+    if (!requireNickname()) return;
+    return joinRoom(user.trim(), roomCode);
+  };
 
   const handleUserChange = e => setUser(e.target.value);
-  const preventDefault = e => e.preventDefault();
-  const openModal = () => setModalState(true);
-  const closeModal = () => setModalState(false);
-  const handleSongSearchChange = e => {
-    const query = e.target.value;
+  const openModal = () => setManualModal(true);
 
-    if (searchControllerRef.current) {
-      searchControllerRef.current.abort();
-    }
-
-    if (query) {
-      const controller = new AbortController();
-      searchControllerRef.current = controller;
-
-      searchTracks(accessToken, query, controller.signal)
-        .then(data => {
-          console.log("Search results:", data);
-          setSearchResults(data.tracks.items);
-        })
-        .catch(error => {
-          if (error.name === "AbortError") return;
-          console.error("Error searching tracks:", error);
-        });
-    } else {
-      searchControllerRef.current = null;
-      setSearchResults([]);
+  const closeModal = () => {
+    setManualModal(false);
+    const { hash, pathname } = window.location;
+    if (hash.startsWith("#/join/") || pathname.startsWith("/join/")) {
+      navigate("/", { replace: true });
     }
   };
+
+  const homeView = (
+    <Main
+      user={user}
+      handleUserChange={handleUserChange}
+      preventDefault={preventDefault}
+      openJoinModal={openModal}
+      handleHostRoom={handleHostRoom}
+      shake={shake}
+      hostError={hostError}
+      rejoinInfo={rejoinInfo}
+      handleRejoinRoom={rejoinRoom}
+      dismissRejoin={dismissRejoin}
+    />
+  );
 
   return (
     <MatchSettingsProvidor>
       <div className="page">
-        <div className="page__content">
-          <div className="falling-gifs">
-            {positionedGifs.slice(0, 24).map(gif => (
-              <img
-                key={gif.id}
-                src={gif.images.downsized.url}
-                alt={gif.title}
-                className="falling-gifs_imgs"
-                style={{
-                  left: `${gif.positionLeft}%`,
-                  top: `-${gif.positionTop}%`,
-                  animationDuration: `${gif.duration}s`,
-                  "--initial-opacity": gif.opacity,
-                }}
-              />
-            ))}
+        <div className="falling-gifs">
+          <FallingGifs gifs={positionedGifs} />
+          <div className="page__content">
+            <Header location={location.pathname} />
+            <div className="page__view">
+              <Routes>
+                <Route path="/" element={homeView} />
+                <Route path="/join/:roomCode" element={homeView} />
+                <Route
+                  path="/room"
+                  element={
+                    <Room
+                      lobbyCode={lobbyCode}
+                      isHost={isHost}
+                      players={players}
+                      maxPlayers={maxPlayers}
+                      startGame={startGame}
+                      leaveRoom={leaveRoom}
+                    />
+                  }
+                />
+                <Route
+                  path="/lobby"
+                  element={
+                    <Lobby
+                      gifs={gifs}
+                      handleSongSearchChange={handleSongSearchChange}
+                      searchResults={searchResults}
+                      resetSearch={resetSearch}
+                      players={players}
+                      myPlayerId={myPlayerId}
+                      isWaiting={isWaiting}
+                      playVideo={playVideo}
+                      playerReady={playerReady}
+                      duration={duration}
+                      isPaused={isPaused}
+                      seekTo={seekTo}
+                      pauseVideo={pauseVideo}
+                      resumeVideo={resumeVideo}
+                      setVolume={setVolume}
+                      getCurrentTime={getCurrentTime}
+                      gameState={gameState}
+                      leaveRoom={leaveRoom}
+                      isHost={isHost}
+                      startGame={startGame}
+                    />
+                  }
+                />
+              </Routes>
+            </div>
+            <JoinModal
+              preventDefault={preventDefault}
+              closeModal={closeModal}
+              modalState={modalState}
+              handleJoinRoom={handleJoinRoom}
+              handleUserChange={handleUserChange}
+              user={user}
+              inviteCode={inviteCode}
+            />
           </div>
-          <Header location={location.pathname} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Main
-                  user={user}
-                  handleUserChange={handleUserChange}
-                  preventDefault={preventDefault}
-                  openJoinModal={openModal}
-                  setLobbyCode={setLobbyCode}
-                  setHost={setHost}
-                />
-              }
-            />
-            <Route
-              path="/room"
-              element={
-                <Room lobbyCode={lobbyCode} host={host} players={players} />
-              }
-            />
-            <Route
-              path="/lobby"
-              element={
-                <Lobby
-                  gifs={gifs}
-                  handleSongSearchChange={handleSongSearchChange}
-                  searchResults={searchResults}
-                />
-              }
-            />
-            <Route path="" /*element={ }*/ />
-          </Routes>
-          <JoinModal
-            preventDefault={preventDefault}
-            closeModal={closeModal}
-            modalState={modalState}
-          />
         </div>
       </div>
     </MatchSettingsProvidor>

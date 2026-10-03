@@ -1,0 +1,124 @@
+.options {
+  width: 100%;
+}
+
+.options__content {
+  display: flex;
+}
+
+.options__nav {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  gap: clamp(16px, 4vw, 40px);
+}
+
+.btn-wrapper {
+  --btn-w: clamp(130px, min(15vw, 26vh), 224px);
+  --btn-h: clamp(48px, min(5vw, 9vh), 75px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.options_btn {
+  width: var(--btn-w);
+  height: var(--btn-h);
+  min-height: var(--tap-target);
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  padding: 0;
+  font-size: clamp(18px, min(2vw, 3.6vh), 30px);
+  font-weight: 700;
+  transition:
+    transform 0.25s var(--ease-pop),
+    box-shadow 0.25s ease,
+    background-color 0.2s ease,
+    letter-spacing 0.25s ease;
+}
+
+.options_btn:active {
+  transform: translateY(1px) scale(0.98);
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background-color 0.1s ease;
+}
+
+.options-join__link {
+  background-color: #80be73;
+  color: #000;
+}
+
+.options-join__link:active {
+  background-color: #3a9c62;
+  box-shadow: 0 2px 4px #3a9c6193;
+}
+
+.options-host__link {
+  background-color: #e21e1e;
+  color: #000;
+}
+
+.options-host__link:active {
+  background-color: #9c2727;
+  box-shadow: 0 2px 4px #9c272793;
+}
+
+.aux-cord-img {
+  width: calc(var(--btn-w) * 0.746);
+  height: auto;
+  position: absolute;
+  top: calc(var(--btn-w) * -0.536);
+  right: calc(var(--btn-w) * -0.357);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bluetooth-img {
+  width: clamp(38px, min(4.6vw, 8vh), 70px);
+  height: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .options_btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    letter-spacing: 1px;
+  }
+
+  .options-join__link:hover {
+    background-color: #b6da82;
+    box-shadow:
+      0 10px 20px #9eec8f73,
+      0 6px 6px #0000002e;
+  }
+
+  .options-host__link:hover {
+    background-color: #e94747;
+    box-shadow:
+      0 10px 20px #e21e1e73,
+      0 6px 6px #0000002e;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .options__nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-wrapper {
+    --btn-w: 190px;
+    --btn-h: 60px;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 932px) {
+  .btn-img {
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,156 @@
+.listening {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 12px);
+  width: 100%;
+  min-width: 0;
+}
+
+.listening__progress {
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.listening__gif {
+  max-width: min(300px, 100%);
+  max-height: min(200px, 22vh);
+  border-radius: 8px;
+}
+
+.listening__song-info {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  background: var(--c-panel-raised);
+  border: 3px solid #000;
+  border-radius: 6px;
+  padding: 10px;
+  gap: 4px;
+}
+
+.listening__album-art {
+  width: clamp(52px, min(5.3vw, 9vh), 80px);
+  height: clamp(52px, min(5.3vw, 9vh), 80px);
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.listening__song-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.listening__track-name {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+.listening__artist {
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+  opacity: 0.7;
+  margin: 0;
+  text-align: center;
+}
+
+.listening__submitter {
+  font-size: clamp(0.78rem, 1vw, 0.85rem);
+  opacity: 0.6;
+  margin: 0;
+  text-align: center;
+}
+
+.listening__player-wrapper {
+  width: 100%;
+  max-width: min(400px, 100%, calc(32dvh * 16 / 9));
+}
+
+.listening__player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+
+.listening__timer {
+  font-size: clamp(1.1rem, min(1.6vw, 3vh), 1.4rem);
+  font-weight: bold;
+  margin: 0;
+}
+
+.listening__skip-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.listening__skip-btn {
+  padding: 8px 24px;
+  min-height: var(--tap-target);
+  border: 2px solid #ff6b6b;
+  border-radius: 20px;
+  background: transparent;
+  color: #c62828;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.listening__skip-btn--voted {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.listening__skip-count {
+  font-size: clamp(0.78rem, 1vw, 0.85rem);
+  opacity: 0.7;
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .listening__skip-btn:hover:not(:disabled) {
+    background: #ff6b6b;
+    color: #fff;
+  }
+}
+
+@media (max-width: 900px) {
+  .listening {
+    gap: 6px;
+  }
+
+  .listening__progress {
+    display: none;
+  }
+
+  .listening__gif {
+    max-height: min(200px, 16dvh);
+  }
+
+  .listening__player-wrapper {
+    max-width: min(400px, 100%, calc(22dvh * 16 / 9));
+  }
+
+  .listening__skip-wrapper {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .listening__skip-wrapper {
+    flex-direction: column;
+  }
+}

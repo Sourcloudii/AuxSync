@@ -1,0 +1,128 @@
+.lobby__choosing-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: clamp(12px, 10vw, 20px);
+}
+
+.lobby__choosing-player {
+  margin: 0;
+  font-size: clamp(20px, min(2.1vw, 3.8vh), 32px);
+  text-align: center;
+}
+
+.lobby__choosing-shuffle-btn {
+  padding: 0;
+  width: clamp(42px, min(3.6vw, 6.5vh), 55px);
+  height: clamp(42px, min(3.6vw, 6.5vh), 55px);
+  flex: none;
+  border: none;
+  background: transparent;
+  background-image: url("../../../images/refresh-icon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.lobby__choosing-shuffle-btn.spinning {
+  animation: spin 0.5s ease-in-out;
+}
+
+.lobby__choosing-search-form {
+  position: relative;
+  max-width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.3vw, 20px);
+}
+
+.lobby__choosing-search-input {
+  width: min(100%, clamp(200px, 15vw, 320px));
+  height: clamp(46px, min(4vw, 7vh), 56px);
+  padding: 8px 58px 8px 12px;
+  border: 6px solid #fff;
+  box-shadow: 0px 0px 10px 2px #00000080;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.lobby__choosing-search-btn {
+  width: clamp(42px, 3.6vw, 55px);
+  height: 100%;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.lobby__choosing-gifs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(10px, 1.3vw, 20px);
+}
+
+.lobby__choosing-gif-btn {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  justify-content: center;
+}
+
+.lobby__choosing-gif:not([src]) {
+  display: none;
+}
+
+.lobby__choosing-gif {
+  max-width: clamp(150px, min(22vw, 34vh), 330px);
+  max-height: clamp(90px, min(13.3vw, 22vh), 200px);
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+@media (320px <= width <= 400px) {
+  .lobby__choosing-gif {
+    height: 75px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lobby__choosing-gif-btn:hover {
+    transform: scale(1.03);
+  }
+}
+
+.lobby__choosing-counts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(12px, 2.5vw, 25px);
+}
+
+.lobby__choosing-counts {
+  margin: 0;
+  font-size: clamp(14px, 1.5vw, 22px);
+}
+
+.shuffle-disabled {
+  animation: none !important;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

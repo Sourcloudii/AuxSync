@@ -14,6 +14,12 @@ import skyskraper from "../images/pfps/skyskraper.jpg";
 import sleepy from "../images/pfps/sleepy.jpg";
 import sunglasses from "../images/pfps/sunglasses.jpg";
 
+import scissors from "../images/scissors.svg";
+import paper from "../images/paper.svg";
+import rock from "../images/rock.svg";
+
+export const DEFAULT_MAX_PLAYERS = 15;
+
 export const pfps = [
   angry,
   boss,
@@ -32,18 +38,31 @@ export const pfps = [
   sunglasses,
 ];
 
-export function getPfpForPlayer(socketId) {
+function hashIndex(id = "") {
   let hash = 0;
-  for (let i = 0; i < socketId.length; i++) {
-    hash = (hash * 31 + socketId.charCodeAt(i)) | 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = (hash * 31 + id.charCodeAt(i)) | 0;
   }
-  return pfps[((hash % pfps.length) + pfps.length) % pfps.length];
+  return ((hash % pfps.length) + pfps.length) % pfps.length;
 }
 
+export function getPfpForPlayer(player, playerId) {
+  const index = Number.isInteger(player?.pfpIndex)
+    ? player.pfpIndex
+    : hashIndex(playerId ?? player?.playerId);
+  return pfps[index % pfps.length];
+}
+
+export const gestures = [
+  { id: "rock", emoji: rock, label: "Rock" },
+  { id: "paper", emoji: paper, label: "Paper" },
+  { id: "scissors", emoji: scissors, label: "Scissors" },
+];
+
 export const instructions = [
-  "Choose a Gif for your friends to battle with",
+  "Choose a Gif for your friends to compete with",
   "Go against friends to sync the perfect song to the Gif.",
-  "Vote for the song that syncs with the GIF the best",
+  "Vote for the song that syncs with the Gif the best",
   "Take control of the Aux crown when you triumph over everyone",
 ];
 
@@ -71,7 +90,7 @@ export const quotes = [
     author: "Auxto",
   },
   {
-    quote: "Aux Battles do not determine who is right — only who is left.",
+    quote: "Aux Battles do not determine who is right - only who is left.",
     author: "Auxtrand Russell",
   },
   {

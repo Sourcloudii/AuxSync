@@ -1,0 +1,7 @@
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+python-socketio==5.12.1
+python-dotenv==1.1.0
+ytmusicapi==1.10.3
+httpx==0.28.1
+slowapi==0.1.9

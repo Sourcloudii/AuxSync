@@ -1,0 +1,93 @@
+.instructions {
+  width: min(95%, clamp(300px, 42.6vw, 640px));
+}
+
+.instructions__content {
+  padding: clamp(12px, 2vw, 20px) 18px;
+}
+
+.instructions-list {
+  height: clamp(150px, min(20.3vw, 32vh), 305px);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: var(--c-panel);
+  box-shadow: 0 0 10px 20px var(--c-panel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructions-list__item {
+  margin-bottom: clamp(12px, 2.5vw, 35px);
+  font-size: clamp(16px, min(1.9vw, 3.4vh), 28px);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+
+.instructions-list__item-hidden {
+  display: none;
+}
+
+.instructions-btn__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 5vw, 40px);
+  margin: clamp(30px, min(4vw, 6vh), 50px) 0 0;
+}
+
+.instructions-btn {
+  position: relative;
+  width: clamp(30px, 3vw, 38px);
+  height: clamp(30px, 3vw, 38px);
+  border-radius: 50%;
+  background-color: var(--c-panel);
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.instructions-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border-radius: 50%;
+}
+
+.instructions-btn_active {
+  border: 5px solid #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .instructions-btn:hover {
+    background-color: #ffe2c2;
+    transform: scale(1.1);
+    animation: circle-pulse 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+}
+
+@media (min-width: 480px) {
+
+}
+
+@keyframes circle-pulse {
+  0% {
+    box-shadow: 0 0 0 0 #ffffffb3;
+  }
+  70% {
+    box-shadow: 0 0 0 8px #ffffff00;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #ffffff00;
+  }
+}
