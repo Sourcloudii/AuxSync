@@ -5,6 +5,7 @@
 
 app = 'auxsync-api'
 primary_region = 'iad'
+organization = 'personal'
 
 [build]
 [http_service]
