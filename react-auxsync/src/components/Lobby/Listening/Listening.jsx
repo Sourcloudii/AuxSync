@@ -14,10 +14,14 @@ export function Listening({
   playVideo,
   playerReady,
   initialSkipVoted,
+  players,
 }) {
-  // initialSkipVoted restores a mid-song skip vote after a reconnect
-  const [votedSkipForIndex, setVotedSkipForIndex] = useState(initialSkipVoted ? songIndex : -1);
-  const [timeLeft, setTimeLeft] = useState(() => Math.ceil((duration || 0) / 1000));
+  const [votedSkipForIndex, setVotedSkipForIndex] = useState(
+    initialSkipVoted ? songIndex : -1,
+  );
+  const [timeLeft, setTimeLeft] = useState(() =>
+    Math.ceil((duration || 0) / 1000),
+  );
   const hasVotedSkip = votedSkipForIndex === songIndex;
 
   const timerKey = `${songIndex}-${duration}`;
@@ -76,8 +80,12 @@ export function Listening({
             />
           )}
           <div className="listening__song-info-wrapper">
-            <p className="listening__track-name">{currentSong.trackName} - {currentSong.artist}</p>
-            <p className="listening__submitter">Submitted by: {currentSong.playerName}</p>
+            <p className="listening__track-name">
+              {currentSong.trackName} - {currentSong.artist}
+            </p>
+            <p className="listening__submitter">
+              Submitted by: {currentSong.playerName}
+            </p>
           </div>
         </div>
       )}
@@ -85,19 +93,21 @@ export function Listening({
         <div id="yt-player-container" className="listening__player" />
       </div>
       <p className="listening__timer">{timeLeft}s</p>
-      <div className="listening__skip-wrapper">
-        <button
-          type="button"
-          className={`listening__skip-btn ${hasVotedSkip ? "listening__skip-btn--voted" : ""}`}
-          onClick={handleSkipVote}
-          disabled={hasVotedSkip}
-        >
-          {hasVotedSkip ? "Voted to Skip" : "Vote to Skip"}
-        </button>
-        <p className="listening__skip-count">
-          {skipVoteCount}/{skipVotesNeeded} votes to skip
-        </p>
-      </div>
+      {(players?.length ?? 0) > 2 && (
+        <div className="listening__skip-wrapper">
+          <button
+            type="button"
+            className={`listening__skip-btn ${hasVotedSkip ? "listening__skip-btn--voted" : ""}`}
+            onClick={handleSkipVote}
+            disabled={hasVotedSkip}
+          >
+            {hasVotedSkip ? "Voted to Skip" : "Vote to Skip"}
+          </button>
+          <p className="listening__skip-count">
+            {skipVoteCount}/{skipVotesNeeded} votes to skip
+          </p>
+        </div>
+      )}
     </div>
   );
 }

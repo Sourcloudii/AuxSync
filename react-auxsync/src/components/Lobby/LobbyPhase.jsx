@@ -80,7 +80,7 @@ function SearchingPhase({
   );
 }
 
-function ListeningPhase({ gameState, playVideo, playerReady }) {
+function ListeningPhase({ gameState, players, playVideo, playerReady }) {
   return (
     <Listening
       chosenGif={gameState.chosenGif}
@@ -93,6 +93,7 @@ function ListeningPhase({ gameState, playVideo, playerReady }) {
       playVideo={playVideo}
       playerReady={playerReady}
       initialSkipVoted={gameState.youSkipVoted}
+      players={players}
     />
   );
 }
