@@ -77,7 +77,6 @@ export function Listening({
           )}
           <div className="listening__song-info-wrapper">
             <p className="listening__track-name">{currentSong.trackName} - {currentSong.artist}</p>
-            {/* <p className="listening__artist">{currentSong.artist}</p> */}
             <p className="listening__submitter">Submitted by: {currentSong.playerName}</p>
           </div>
         </div>
