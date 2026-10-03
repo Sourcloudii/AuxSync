@@ -71,22 +71,6 @@
   z-index: 1;
 }
 
-.room__code-value {
-  display: inline-block;
-  transition: filter 0.15s ease;
-}
-
-.room__code-value--discreet {
-  filter: blur(5px);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .room__code-wrapper:hover .room__code-value--discreet,
-  .room__code-wrapper:focus-within .room__code-value--discreet {
-    filter: blur(0);
-  }
-}
-
 .room__wrapper {
   display: flex;
   gap: clamp(12px, 2vw, 30px);

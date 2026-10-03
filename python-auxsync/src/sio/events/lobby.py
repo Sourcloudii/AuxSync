@@ -23,12 +23,17 @@ def register_lobby_events(sio):
         existing = room["players"].get(player_id)
         if not existing:
             return {"error": "Could not reconnect to your seat"}
+
+        stale_sid = None
         if existing["connected"] and existing["sid"] and existing["sid"] != sid:
-            return {"error": "You are already in this room in another tab"}
+            stale_sid = existing["sid"]
 
         result = room_manager.bind_seat(code, player_id, sid)
         player = result["player"]
         first_bind = result["first_bind"]
+
+        if stale_sid:
+            await sio.disconnect(stale_sid)
 
         await sio.enter_room(sid, code)
 

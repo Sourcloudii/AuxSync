@@ -33,8 +33,9 @@ export function Main({
             ×
           </button>
           <p className="main__rejoin-text">
-            You left room <strong>{rejoinInfo.roomCode}</strong> as{" "}
-            <strong>{rejoinInfo.nickname}</strong>.
+            You were in room{" "}
+            <strong className="main__rejoin-code">{rejoinInfo.roomCode}</strong>{" "}
+            as <strong>{rejoinInfo.nickname}</strong>.
           </p>
           <button
             type="button"

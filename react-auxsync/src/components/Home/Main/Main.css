@@ -94,6 +94,19 @@
   color: #000;
 }
 
+.main__rejoin-code {
+  display: inline-block;
+  filter: blur(5px);
+  transition: filter 0.15s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .main__rejoin-popup:hover .main__rejoin-code,
+  .main__rejoin-popup:focus-within .main__rejoin-code {
+    filter: blur(0);
+  }
+}
+
 .main__rejoin-btn {
   padding: 8px 16px;
   min-height: var(--tap-target);

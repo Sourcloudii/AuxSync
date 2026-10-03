@@ -19,6 +19,8 @@ from sio.handlers import register_all_handlers
 sio = socketio.AsyncServer(
     async_mode="asgi",
     cors_allowed_origins=env["ALLOWED_ORIGINS"],
+    ping_interval=10,
+    pingtimeout=10,
 )
 
 fastapi_app = FastAPI(title="AuxSync")
