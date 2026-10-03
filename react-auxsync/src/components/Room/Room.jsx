@@ -54,15 +54,23 @@ export function Room({
               onClick={handleCopyLobbyCode}
               aria-label={`Copy invite link for lobby ${lobbyCode}`}
             >
-              Room Code: {`${hidden ? "****" : lobbyCode}`}
+              Room Code:{" "}
+              <span
+                className={`room__code-value ${hidden ? "room__code-value--discreet" : ""}`}
+              >
+                {lobbyCode}
+              </span>
             </button>
             <button
               className="room__code-hide-btn"
               type="button"
               onClick={() => setHidden(!hidden)}
-              aria-label={hidden ? "Show Room Code" : "Hide Room Code"}
+              aria-label={hidden ? "Reveal Room Code" : "Blur Room Code"}
             >
-              <img src={hidden ? eyeClosed : eyeOpen} alt={hidden ? "Code Hidden" : "Code Visible"} />
+              <img
+                src={hidden ? eyeClosed : eyeOpen}
+                alt={hidden ? "Code Blurred" : "Code Visible"}
+              />
             </button>
           </div>
           <div className="room__players-info">

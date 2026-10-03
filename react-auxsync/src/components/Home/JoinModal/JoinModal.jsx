@@ -64,10 +64,6 @@ export function JoinModal({
     closeModal();
   };
 
-  // Click-outside-to-close is bound to the node, not declared as a JSX handler:
-  // the dismissible area is the backdrop itself, which has no element of its own
-  // to own the interaction. Keyboard users close with Escape (native to
-  // <dialog>) or the close button, so nothing here is mouse-only.
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;

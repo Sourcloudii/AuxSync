@@ -3,6 +3,7 @@ import { useState } from "react";
 import {
   Routes,
   Route,
+  Navigate,
   useLocation,
   useNavigate,
   useMatch,
@@ -112,6 +113,45 @@ function App() {
     />
   );
 
+  const roomView = (
+    <Room
+      lobbyCode={lobbyCode}
+      isHost={isHost}
+      players={players}
+      maxPlayers={maxPlayers}
+      startGame={startGame}
+      leaveRoom={leaveRoom}
+    />
+  );
+
+  const lobbyView = (
+    <Lobby
+      gifs={gifs}
+      handleSongSearchChange={handleSongSearchChange}
+      searchResults={searchResults}
+      resetSearch={resetSearch}
+      players={players}
+      myPlayerId={myPlayerId}
+      isWaiting={isWaiting}
+      playVideo={playVideo}
+      playerReady={playerReady}
+      duration={duration}
+      isPaused={isPaused}
+      seekTo={seekTo}
+      pauseVideo={pauseVideo}
+      resumeVideo={resumeVideo}
+      setVolume={setVolume}
+      getCurrentTime={getCurrentTime}
+      gameState={gameState}
+      leaveRoom={leaveRoom}
+      isHost={isHost}
+      startGame={startGame}
+    />
+  );
+
+  const connected = Boolean(lobbyCode);
+  const goHome = <Navigate to="/" replace />;
+
   return (
     <MatchSettingsProvidor>
       <div className="page">
@@ -125,43 +165,11 @@ function App() {
                 <Route path="/join/:roomCode" element={homeView} />
                 <Route
                   path="/room"
-                  element={
-                    <Room
-                      lobbyCode={lobbyCode}
-                      isHost={isHost}
-                      players={players}
-                      maxPlayers={maxPlayers}
-                      startGame={startGame}
-                      leaveRoom={leaveRoom}
-                    />
-                  }
+                  element={connected ? roomView : goHome}
                 />
                 <Route
                   path="/lobby"
-                  element={
-                    <Lobby
-                      gifs={gifs}
-                      handleSongSearchChange={handleSongSearchChange}
-                      searchResults={searchResults}
-                      resetSearch={resetSearch}
-                      players={players}
-                      myPlayerId={myPlayerId}
-                      isWaiting={isWaiting}
-                      playVideo={playVideo}
-                      playerReady={playerReady}
-                      duration={duration}
-                      isPaused={isPaused}
-                      seekTo={seekTo}
-                      pauseVideo={pauseVideo}
-                      resumeVideo={resumeVideo}
-                      setVolume={setVolume}
-                      getCurrentTime={getCurrentTime}
-                      gameState={gameState}
-                      leaveRoom={leaveRoom}
-                      isHost={isHost}
-                      startGame={startGame}
-                    />
-                  }
+                  element={connected ? lobbyView : goHome}
                 />
               </Routes>
             </div>
