@@ -23,7 +23,7 @@ export const claimSeat = (roomCode, nickname, playerId) =>
   request(`${API_BASE}/api/rooms/${roomCode}/seat`, "Failed to join room", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    credentials: "same-origin",
+    credentials: "include",
     body: JSON.stringify({ nickname, playerId }),
   });
 
