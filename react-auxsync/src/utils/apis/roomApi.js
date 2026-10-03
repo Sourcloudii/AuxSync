@@ -11,7 +11,7 @@ const request = async (url, fallbackError, options) => {
 };
 
 export const createRoom = nickname =>
-  request(`${API_BASE}/api/rooms`, "Failed to create room", {
+  request(`${API_BASE}/api/rooms/`, "Failed to create room", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ nickname }),

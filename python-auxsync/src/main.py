@@ -48,4 +48,6 @@ if __name__ == "__main__":
         host=env["HOST"],
         port=env["PORT"],
         reload=env["DEV_RELOAD"],
+        proxy_headers=True,
+        forwarded_allow_ips="*",
     )
