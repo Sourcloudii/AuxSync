@@ -251,7 +251,7 @@
 
 @media (max-width: 900px) {
   .room__exit-btn {
-    left: 0;
+    left: -10px;
     top: -65px;
   }
 }
