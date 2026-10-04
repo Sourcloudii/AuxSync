@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export const SITE_NAME = "AuxSync";
-export const SITE_URL = "https://sourcloudii.github.io/AuxSync/";
+export const SITE_URL = import.meta.env.VITE_SITE_URL ?? "https://auxsync.com";
 
 export const DEFAULT_TITLE = "AuxSync - Multiplayer GIF & Song Party Game";
 

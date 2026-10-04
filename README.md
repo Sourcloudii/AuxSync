@@ -53,7 +53,7 @@ The goal is simple: **choose the song that syncs with the GIF better than anyone
 
 Timing, humor, and creativity often win the round.
 
-## Demo
+## Link
 
-You can Click this [link](https://sourcloudii.github.io/AuxSync/) to view the website during production.
+You can click this [link](https://auxsync.com) to play. 
 
