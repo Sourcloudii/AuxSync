@@ -4,7 +4,6 @@ from state import room_manager
 from sio.middleware import socket_auth, clear_rate_limit
 from sio.events.lobby import (
     register_lobby_events,
-    remove_player_fully,
     schedule_grace_removal,
 )
 from sio.events.game import register_game_events
@@ -58,16 +57,13 @@ def register_all_handlers(sio) -> None:
             log.debug("Disconnected (stale): %s", sid)
             return
 
-        if room["game_state"]:
-            room_manager.mark_disconnected(code, player_id)
-            await sio.emit(
-                "players-updated",
-                {"players": room_manager.get_player_list(room)},
-                room=code,
-            )
-            schedule_grace_removal(sio, code, player_id)
-        else:
-            await remove_player_fully(sio, room, player_id)
+        room_manager.mark_disconnected(code, player_id)
+        await sio.emit(
+            "players-updated",
+            {"players": room_manager.get_player_list(room)},
+            room=code,
+        )
+        schedule_grace_removal(sio, code, player_id)
 
         log.info("Disconnected: %s", sid)
 
