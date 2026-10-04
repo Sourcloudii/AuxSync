@@ -6,7 +6,7 @@ export const SITE_URL = import.meta.env.VITE_SITE_URL ?? "https://auxsync.com";
 export const DEFAULT_TITLE = "AuxSync - Multiplayer GIF & Song Party Game";
 
 export const DEFAULT_DESCRIPTION =
-  "Pick a GIF, race your friends to score it with the perfect song, then vote on whose track fits best. Free browser party game - no install, just share a link.";
+  "Pick a GIF, race your friends to score it with the perfect song, then vote on whose track fits best.";
 
 const INDEXABLE = "index, follow, max-image-preview:large, max-snippet:-1";
 const PRIVATE = "noindex, nofollow";
