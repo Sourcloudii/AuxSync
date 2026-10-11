@@ -22,7 +22,7 @@ function handleGifChosen(gif) {
   socket.emit("gif-chosen", gif);
 }
 
-export function Choosing({ gifs, player, settings, shuffleSlot }) {
+export function Choosing({ gifs, player, settings, shuffleSlot, roundKey }) {
   const maxNum = maxMap[settings?.gifSubOption] ?? 6;
   const searchState = settings?.searchEnabled ?? true;
   const initialGifs = useMemo(
@@ -37,20 +37,20 @@ export function Choosing({ gifs, player, settings, shuffleSlot }) {
   const [spinning, setSpinning] = useState(false);
   const [isVisualDisabled, setIsVisualDisabled] = useState(false);
   const [isSearchDisabled, setIsSearchDisabled] = useState(false);
-  const [prevPlayer, setPrevPlayer] = useState(player?.name);
+  const [trackedRound, setTrackedRound] = useState(roundKey);
 
   const searchQueryRef = useRef("");
   const shuffleDisabled = shuffleCount >= 3;
   const searchDisabled = searchCount >= 3;
 
-  if (prevPlayer !== player?.name) {
-    setPrevPlayer(player?.name);
+  if (trackedRound !== roundKey) {
+    setTrackedRound(roundKey);
     setShuffleCount(0);
     setSearchCount(0);
     setIsVisualDisabled(false);
     setIsSearchDisabled(false);
     setSearchResults([]);
-    setDisplayedGifs(initialGifs);
+    setDisplayedGifs(shuffle(gifs).slice(0, maxNum));
   }
 
   if (displayedGifs.length === 0 && initialGifs.length > 0) {

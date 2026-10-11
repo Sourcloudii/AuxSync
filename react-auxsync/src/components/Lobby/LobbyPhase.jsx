@@ -26,6 +26,7 @@ function ChoosingPhase({ gifs, gameState, isChooser, chooserPlayer, shuffleSlot 
       player={chooserPlayer}
       settings={gameState?.settings}
       shuffleSlot={shuffleSlot}
+      roundKey={`${gameState?.currentRound}-${gameState?.chooserPlayerId}`}
     />
   );
 }
